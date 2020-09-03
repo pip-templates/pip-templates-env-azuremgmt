@@ -1,0 +1,83 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "<%=az_region%>"
+        },
+        "networkInterfaceName": {
+            "value": "<%=env_name%>-mgmt-nic"
+        },
+        "networkSecurityGroupName": {
+            "value": "<%=env_name%>-mgmt-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "SSH",
+                    "properties": {
+                        "priority": 300,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "<%=mgmt_vnet_network%>",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "22"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "<%=mgmt_vnet_subnet%>"
+        },
+        "virtualNetworkName": {
+            "value": "<%=env_name%>-mgmt-vnet"
+        },
+        "addressPrefixes": {
+            "value": [
+                "<%=mgmt_vnet_network%>"
+            ]
+        },
+        "subnets": {
+            "value": [
+                {
+                    "name": "<%=mgmt_vnet_subnet%>",
+                    "properties": {
+                        "addressPrefix": "<%=mgmt_vnet_network%>"
+                    }
+                }
+            ]
+        },
+        "publicIpAddressName": {
+            "value": "<%=env_name%>-mgmt-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "virtualMachineName": {
+            "value": "<%=env_name%>-mgmt"
+        },
+        "virtualMachineRG": {
+            "value": "<%=az_resource_group%>"
+        },
+        "diskName": {
+            "value": "<%=env_name%>-mgmt-disk"
+        },
+        "osDiskType": {
+            "value": "Standard_LRS"
+        },
+        "virtualMachineSize": {
+            "value": "<%=mgmt_vm_size%>"
+        },
+        "adminUsername": {
+            "value": "<%=mgmt_username%>"
+        },
+        "adminPublicKey": {
+            "value": "<%=mgmt_instance_keypair_name%>"
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "az_region": "eastus",
+    "az_resource_group": "piptemplates-stage-east-us",
+    "az_subscription": "piptemplates-DI",
+
+    "env_name": "pip-templates",
+
+    "mgmt_deployment_name": "piptemplates-mgmt-win-vm-deployment",
+    "mgmt_username": "piptemplatesadmin",
+    "mgmt_vm_size": "Standard_DS2_v2",
+    "mgmt_vnet_subnet": "default",
+    "mgmt_vnet_network": "10.3.0.0/29",
+    "mgmt_instance_keypair_name": "piptemplates",
+
+    "copy_project_to_mgmt_station": false
+}
