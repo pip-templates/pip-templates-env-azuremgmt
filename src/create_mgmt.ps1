@@ -51,8 +51,8 @@ if (![System.Convert]::ToBoolean($(az group exists -n $config.az_resource_group)
     Write-Host "Using existing resource group '$($config.az_resource_group)'."
 }
 
-# Create management windows virtual machine
-Write-Host "Creating management windows virtual machine..."
+# Create management station virtual machine
+Write-Host "Creating management station virtual machine..."
 
 Build-EnvTemplate -InputPath "$($path)/../templates/az_vm_params.json" `
 -OutputPath "$($path)/../temp/az_vm_params.json" -Params1 $config -Params2 $resources
